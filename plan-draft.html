@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tennis.Date 기획안</title>
+<style>
+  :root {
+    --main: #3fdf84; --c2: #00c297; --c3: #00a49d; --c4: #008493;
+    --c5: #0d657a; --c6: #2f4858; --white: #ffffff; --black: #000000;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Pretendard", "Malgun Gothic", system-ui, sans-serif; background: #f2f6f5; color: var(--c6); }
+  header { background: linear-gradient(135deg, var(--main), var(--c3) 60%, var(--c5)); color: var(--white); padding: 56px 16px; text-align: center; }
+  header h1 { margin: 0 0 8px; font-size: 2.4rem; color: var(--black); }
+  header p { margin: 0; font-weight: 600; }
+  main { max-width: 1000px; margin: 0 auto; padding: 32px 16px 64px; }
+  h2 { color: var(--c5); border-left: 6px solid var(--main); padding-left: 12px; margin: 40px 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: var(--white); border-radius: 14px; padding: 20px; box-shadow: 0 2px 10px rgba(47,72,88,.12); border-top: 4px solid var(--main); }
+  .card h3 { margin: 0 0 10px; color: var(--c5); font-size: 1.05rem; }
+  .card ul { margin: 0; padding-left: 18px; line-height: 1.7; }
+  .card p { margin: 0; line-height: 1.6; }
+  .swatch { display: flex; align-items: center; gap: 12px; }
+  .dot { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(0,0,0,.25); flex: none; }
+  .swatch code { font-size: 1rem; font-weight: 700; }
+  .swatch small { display: block; color: #6a7c88; }
+  .tag { display: inline-block; background: var(--c2); color: var(--white); border-radius: 999px; padding: 2px 10px; margin: 2px 4px 2px 0; font-size: .85rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tennis.Date</h1>
+  <p>테니스 일정 관리 사이트 기획안</p>
+</header>
+<main>
+  <h2>사이트 개요</h2>
+  <div class="grid">
+    <div class="card"><h3>사이트명</h3><p><strong>Tennis.Date</strong></p></div>
+    <div class="card"><h3>목적</h3><p>테니스 일정을 달력으로 관리하고, 회원·게스트와 함께 참여 인원을 정리한다.</p></div>
+  </div>
+
+  <h2>컬러 팔레트</h2>
+  <div class="grid">
+    <div class="card swatch"><span class="dot" style="background:#3fdf84"></span><div><code>#3fdf84</code><small>메인 컬러</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#00c297"></span><div><code>#00c297</code><small>서브</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#00a49d"></span><div><code>#00a49d</code><small>서브</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#008493"></span><div><code>#008493</code><small>서브</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#0d657a"></span><div><code>#0d657a</code><small>서브</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#2f4858"></span><div><code>#2f4858</code><small>서브</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#ffffff"></span><div><code>#ffffff</code><small>화이트</small></div></div>
+    <div class="card swatch"><span class="dot" style="background:#000000"></span><div><code>#000000</code><small>블랙</small></div></div>
+  </div>
+
+  <h2>사이트 기능</h2>
+  <div class="grid">
+    <div class="card"><h3>달력 보기</h3><ul><li>월 / 주 / 일 단위 전환</li></ul></div>
+    <div class="card"><h3>회원 기능</h3><ul><li>회원가입</li><li>로그인</li></ul></div>
+    <div class="card"><h3>일정 등록</h3><ul><li>각 일자에 시간별 데이터 등록</li><li>시작~종료 날짜 및 시간 선택 (datetime)</li></ul></div>
+    <div class="card"><h3>일정 데이터 항목</h3>
+      <span class="tag">테니스장</span><span class="tag">위치</span><span class="tag">주차여부</span><span class="tag">인원수</span><span class="tag">레벨</span><span class="tag">예약자</span><span class="tag">금액</span>
+    </div>
+    <div class="card"><h3>참여자 (회원)</h3><p>인원 n명을 지정할 수 있으며, 참여자는 회원가입한 사용자의 데이터로 추가한다.</p></div>
+    <div class="card"><h3>참여자 (게스트)</h3><p>n명 중 '게스트'라는 이름의 데이터도 추가할 수 있다.</p></div>
+  </div>
+</main>
+</body>
+</html>
