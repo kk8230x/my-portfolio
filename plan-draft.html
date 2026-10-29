@@ -18,7 +18,7 @@
   h2 { color: var(--main); font-size: 1.1rem; margin: 40px 0 0; padding-bottom: 8px; border-bottom: 1px solid var(--gray-line); }
   .row { display: grid; grid-template-columns: 140px 1fr; gap: 4px 24px; padding: 14px 0; border-bottom: 1px solid var(--gray-line); }
   .row h3 { margin: 0; font-size: 1rem; color: var(--black); }
-  .row ul { margin: 0; padding-left: 18px; }
+  .row ul, .row ol { margin: 0; padding-left: 18px; }
   .row p { margin: 0; }
   .row a { color: var(--main); word-break: break-all; }
   .swatch { display: flex; align-items: center; gap: 12px; }
@@ -57,11 +57,66 @@
   <div class="row"><h3>참여자 (게스트)</h3><p>n명 중 '게스트'라는 이름의 데이터도 추가할 수 있다.</p></div>
 
   <h2>세부 메뉴 계획</h2>
-  <div class="row"><h3>메인페이지</h3><p>Tennis.Date 로고로 만든 index페이지 추가</p></div>
+  <div class="row"><h3>메인페이지</h3><p>Tennis.Date 로고로 만든 index페이지 추가 (로고와 한 줄 소개만 두고 대메뉴로 이동)</p></div>
   <div class="row"><h3>대메뉴</h3><p>일정달력, 일정등록, 회원관리</p></div>
   <div class="row"><h3>세부메뉴</h3><ul><li>일정달력 → 세부메뉴 없음</li><li>일정등록 → 세부메뉴 없음</li><li>회원관리 → 내정보, 전체관리</li></ul></div>
   <div class="row"><h3>해당 사이트 우측 상단</h3><p>한국시간기준 시계(YYMMdd hh:mm:ss 24h), 로그인버튼, 회원가입버튼</p></div>
   <div class="row"><h3>디자인참고사이트</h3><p><a href="https://www.behance.net/gallery/123481973/Date-Range-UXUI-Design/modules/703881615" target="_blank" rel="noopener">https://www.behance.net/gallery/123481973/Date-Range-UXUI-Design/modules/703881615</a></p></div>
+
+  <h2>페르소나</h2>
+  <div class="row"><h3>기본정보</h3><p>테니스를 시작한 지 얼마 안됐는데 지인들과 치기 위해 일정을 확인해야하는 동호인</p></div>
+  <div class="row"><h3>사용환경</h3><p>언제 어느때든 pc나 모바일로 테니스 치기위한 일정 확인을 위해 사이트 방문</p></div>
+  <div class="row"><h3>목표</h3><p>본인의 일정을 설정하여 사람을 구하거나, 남의 일정에 참여 신청을 할 수 있어야함</p></div>
+
+  <h2>사용자 시나리오</h2>
+  <div class="row"><h3>처음 들어온 회원의 회원가입하기</h3>
+    <ol>
+      <li>회원가입 버튼 클릭</li>
+      <li>회원가입 화면으로 전환</li>
+      <li>아이디, 비번, 이름, 나이, 구력, NTRP 입력 및 아이디, 이름 중복체크</li>
+      <li>회원가입 완료 버튼 클릭</li>
+      <li>메인 화면으로 전환</li>
+    </ol>
+  </div>
+  <div class="row"><h3>로그인</h3>
+    <ol>
+      <li>로그인 버튼 클릭</li>
+      <li>로그인 화면으로 전환</li>
+      <li>회원가입 시 작성했던 아이디, 비번을 작성하여 로그인 버튼 클릭</li>
+      <li>로그인완료 alert(message) 띄운 후 메인 화면으로 전환</li>
+    </ol>
+  </div>
+  <div class="row"><h3>일정 확인 및 등록</h3>
+    <ol>
+      <li>대메뉴 에서 "달력" 클릭</li>
+      <li>날짜들 중 하루를 클릭하여 해당 날짜에 있는 일정 확인 (비회원은 로그인 안내)</li>
+      <li>일정 상세에서 [참여하기] 클릭 시 선착순으로 즉시 참여자에 추가, 정원이 차면 [마감]으로 변경</li>
+    </ol>
+  </div>
+  <div class="row"><h3>참여 취소 및 대참자 구하기</h3>
+    <ol>
+      <li>참여 중인 일정에서 [참여 취소] 클릭</li>
+      <li>일정 시작 1시간 전까지만 취소 가능, 이후에는 버튼 비활성화</li>
+      <li>당일 취소는 취소자가 직접 대참자(회원 검색 또는 게스트 이름)를 지정해야 취소 완료</li>
+      <li>대참자를 구하지 못하면 취소되지 않고 참여자로 남음</li>
+    </ol>
+  </div>
+
+  <h2>세부 정책</h2>
+  <div class="row"><h3>접근 권한</h3><ul><li>비회원: 달력에서 일정 유무만 열람, 일정 클릭 시 로그인 필요</li><li>회원: 일정 상세 열람, 참여, 일정 등록</li><li>운영자: 회원관리 → 전체관리 메뉴 이용 (일반 회원은 내정보만)</li></ul></div>
+  <div class="row"><h3>참여 방식</h3><p>선착순 즉시 확정 (승인 절차 없음)</p></div>
+  <div class="row"><h3>일정 수정/삭제</h3><ul><li>참여자가 있으면 메모, 금액, 위치 같은 부가 정보만 등록자가 수정 가능</li><li>시간, 날짜, 정원은 수정 불가</li><li>삭제는 등록자가 요청하면 운영자가 처리</li></ul></div>
+  <div class="row"><h3>필수 입력</h3><p>날짜와 시간, 테니스장, 위치, 주차여부, 인원수, 레벨, 예약자, 금액(대관료·캔볼비)은 필수, 메모만 선택</p></div>
+  <div class="row"><h3>지난 일정</h3><p>달력에 그대로 남고 상세 열람 가능. 참여·취소·대참 버튼은 비활성화하고 "종료된 일정"으로 표시</p></div>
+  <div class="row"><h3>예약자</h3><p>코트를 실제로 예약한 사람. 등록자와 다를 수 있으며 회원 선택 또는 직접 입력</p></div>
+  <div class="row"><h3>금액</h3><p>대관료, 캔볼비를 각각 입력하고 합산하여 1인당 금액을 자동 계산해 표시 (회원+게스트 총 인원 기준)</p></div>
+  <div class="row"><h3>레벨</h3><p>참고용 표시 (예: NTRP 2.0~3.0), 범위 밖이어도 참여 제한 없음</p></div>
+  <div class="row"><h3>게스트</h3><p>일정 등록자만 추가하며, 정원과 1인당 금액 계산에 포함</p></div>
+  <div class="row"><h3>달력 표시</h3><p>날짜 칸에 시간과 테니스장 이름 표시, 마감은 회색, 대참 구함은 강조색 (잔여 인원은 표시하지 않음)</p></div>
+  <div class="row"><h3>모바일 달력</h3><p>월 보기를 유지하되 칸에는 점이나 색만 표시, 날짜를 누르면 시간·코트명이 있는 목록이 펼쳐짐</p></div>
+  <div class="row"><h3>운영자</h3><p>member 테이블에 auth 컬럼을 추가하여 구분 (상세 권한은 추후 정의)</p></div>
+  <div class="row"><h3>데이터 저장</h3><p>Supabase 같은 호스팅형 백엔드로 로그인과 DB 처리 (서비스는 개발 단계에서 확정)</p></div>
+  <div class="row"><h3>제외 범위</h3><ul><li>알림</li><li>비밀번호 찾기</li><li>회원 탈퇴</li></ul></div>
 </main>
 </body>
 </html>
