@@ -55,11 +55,7 @@
   .reserve { color: var(--main); font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid var(--main); padding-bottom: 2px; }
 
   /* marquee */
-  .marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--panel); }
-  .marquee div { display: flex; width: max-content; animation: slide 28s linear infinite; }
-  .marquee span { padding: 14px 36px; font-size: .85rem; letter-spacing: .15em; color: var(--muted); white-space: nowrap; }
-  .marquee span::before { content: "● "; color: var(--main); }
-  @keyframes slide { to { transform: translateX(-50%); } }
+  .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
 
   /* section base */
   section { padding: 110px 0 0; }
@@ -199,10 +195,7 @@
   </div>
 </div>
 
-<div class="marquee"><div>
-  <span>TENNIS.DATE</span><span>일정달력</span><span>일정등록</span><span>회원관리</span><span>TENNIS.DATE</span><span>일정달력</span><span>일정등록</span><span>회원관리</span>
-  <span>TENNIS.DATE</span><span>일정달력</span><span>일정등록</span><span>회원관리</span><span>TENNIS.DATE</span><span>일정달력</span><span>일정등록</span><span>회원관리</span>
-</div></div>
+<hr class="rule">
 
 <!-- 사이트 개요 -->
 <section>
@@ -231,9 +224,9 @@
         <div class="t"><h3>달력 보기</h3><p>월 / 주 / 일 단위로 전환하며 일정 확인</p></div></article>
       <article class="card"><div class="img"><img src="tennis2.jpg" alt=""></div><span class="n">02</span>
         <div class="t"><h3>일정 등록</h3><p>시작~종료 날짜·시간을 선택해 시간별 데이터 등록</p></div></article>
-      <article class="card"><div class="img"><img src="tennis4.jpg" alt=""></div><span class="n">03</span>
+      <article class="card"><div class="img"><img src="tennis8.jpg" alt=""></div><span class="n">03</span>
         <div class="t"><h3>참여하기</h3><p>회원 또는 게스트로 선착순 즉시 참여</p></div></article>
-      <article class="card"><div class="img"><img src="tennis5.jpg" alt=""></div><span class="n">04</span>
+      <article class="card"><div class="img"><img src="tennis9.jpg" alt=""></div><span class="n">04</span>
         <div class="t"><h3>회원 관리</h3><p>내정보와 전체관리로 가입 회원 확인</p></div></article>
     </div>
   </div>
@@ -257,7 +250,7 @@
         </div>
       </div>
       <aside class="panel detail">
-        <div class="pic img"><img src="tennis2.jpg" alt=""></div>
+        <div class="pic img"><img src="tennis10.jpg" alt=""></div>
         <h3>올림픽공원 테니스장</h3>
         <div class="meta">11월 15일 (일) 10:00 ~ 12:00</div>
         <div class="tags"><span class="tag">테니스장</span><span class="tag">위치</span><span class="tag">주차여부</span><span class="tag">인원수</span><span class="tag">레벨</span><span class="tag">예약자</span><span class="tag">금액</span><span class="tag">메모</span></div>
@@ -295,13 +288,13 @@
       <p>가입부터 대참자 구하기까지, 사용자 흐름.</p>
     </div>
     <div class="steps">
-      <div class="step"><div class="img"><img src="tennis1.jpg" alt=""></div><div class="b"><h3>회원가입</h3>
+      <div class="step"><div class="img"><img src="tennis7.jpg" alt=""></div><div class="b"><h3>회원가입</h3>
         <ol><li>회원가입 버튼 클릭</li><li>아이디·비번·이름·나이·구력·NTRP 입력 및 중복체크</li><li>가입 완료 후 메인 화면으로</li></ol></div></div>
-      <div class="step"><div class="img"><img src="tennis2.jpg" alt=""></div><div class="b"><h3>로그인</h3>
+      <div class="step"><div class="img"><img src="tennis11.jpg" alt=""></div><div class="b"><h3>로그인</h3>
         <ol><li>로그인 버튼 클릭</li><li>아이디·비번 입력</li><li>완료 alert 후 메인 화면으로</li></ol></div></div>
-      <div class="step"><div class="img"><img src="tennis3.jpg" alt=""></div><div class="b"><h3>일정 확인 및 등록</h3>
+      <div class="step"><div class="img"><img src="tennis4.jpg" alt=""></div><div class="b"><h3>일정 확인 및 등록</h3>
         <ol><li>대메뉴에서 달력 클릭</li><li>날짜를 눌러 일정 확인 (비회원은 로그인 안내)</li><li>[참여하기] 선착순 추가, 정원이 차면 [마감]</li></ol></div></div>
-      <div class="step"><div class="img"><img src="tennis4.jpg" alt=""></div><div class="b"><h3>참여 취소·대참자</h3>
+      <div class="step"><div class="img"><img src="tennis3.jpg" alt=""></div><div class="b"><h3>참여 취소·대참자</h3>
         <ol><li>일정 시작 1시간 전까지 취소 가능</li><li>당일 취소는 대참자(회원 검색/게스트 이름) 지정 필수</li><li>대참자를 못 구하면 참여자로 유지</li></ol></div></div>
     </div>
   </div>
@@ -335,14 +328,14 @@
 </footer>
 
 <script>
-  // 한국시간 시계 (YYMMdd hh:mm:ss, 24h)
+  // 한국시간 시계 (YYYY-MM-DD HH:MM, 24h)
   (function () {
     var el = document.getElementById('clock');
     function tick() {
       var p = {};
-      new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' })
+      new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
         .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
-      el.textContent = p.year + p.month + p.day + ' ' + p.hour + ':' + p.minute + ':' + p.second;
+      el.textContent = p.year + '-' + p.month + '-' + p.day + ' ' + p.hour + ':' + p.minute;
     }
     tick(); setInterval(tick, 1000);
   })();
